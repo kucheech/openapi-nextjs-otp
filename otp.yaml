@@ -1,0 +1,36 @@
+openapi: 3.0.2
+info:
+  title: OTP API
+  version: v1
+servers:
+  - url: http://localhost:3000/api
+paths:
+  /otp:
+    post:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:               
+                id:
+                  type: string
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string                    
+                  otp:
+                    type: string
+                    description: 6-digit
+                    example: 123456
+                  expires:
+                    type: number
+                    description: unix timestamp
+
